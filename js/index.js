@@ -49,6 +49,8 @@ function displayRepositories() {
   var repos = JSON.parse(this.responseText);
   var user = repos[0].owner.login;
   let urlBase = 'https://api.github.com/repos/' + user + '/';
+  // add link to repo
+  console.log("display Repos",repos);
   const repoList = `<ul>${repos
     .map(
        r =>
