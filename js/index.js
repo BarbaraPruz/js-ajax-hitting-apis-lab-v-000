@@ -58,7 +58,7 @@ function displayRepositories() {
          urlBase + r.name +
          '" onclick="getCommits(this)">Get Commits</a></li>' +
          ' - <a href="#" data-url="' +
-         urlBase + r.name 
+         urlBase + r.name
          '" onclick="getBranches(this)">Get Branches</a></li>'
      )
     .join('')}</ul>`;
