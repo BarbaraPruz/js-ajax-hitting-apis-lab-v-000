@@ -18,7 +18,7 @@ function getBranches(el) {
   const user = el.dataset.username;
   const req = new XMLHttpRequest();
   req.addEventListener('load', displayBranches);
-  req.open('GET', `https://api.github.com/${user}/${repo}/branches`);
+  req.open('GET', `https://api.github.com/repos/${user}/${repo}/branches`);
   req.send();
 }
 
@@ -43,7 +43,7 @@ function getCommits(el) {
   const user = el.dataset.username;
   const req = new XMLHttpRequest();
   req.addEventListener('load', displayCommits);
-  req.open('GET', `https://api.github.com/${user}/${repo}/commits`);
+  req.open('GET', `https://api.github.com/repos/${user}/${repo}/commits`);
   req.send();
 }
 
