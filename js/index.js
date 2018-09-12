@@ -41,9 +41,8 @@ function getCommits(el) {
   const url = el.dataset.url;
   const req = new XMLHttpRequest();
   req.addEventListener('load', displayCommits);
-//  console.log("get commits url",url+'/commits');
-//  req.open('GET', url + '/commits');
-  req.open('GET', url );
+  console.log("get commits url",url+'/commits');
+  req.open('GET', url + '/commits');
   req.send();
 }
 
@@ -57,7 +56,7 @@ function displayRepositories() {
          '<li>' +
           r.html_url +
          ' - <a href="#" data-url="' +
-         urlBase + r.name + '/commits' +
+         urlBase + r.name + 
          '" onclick="getCommits(this)">Get Commits</a></li>' +
          ' - <a href="#" data-url="' +
          urlBase + r.name +
