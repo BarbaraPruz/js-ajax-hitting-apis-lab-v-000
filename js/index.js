@@ -15,7 +15,7 @@ function displayBranches(ev) {
 
 function getBranches(el) {
   const repo = el.dataset.repository;
-  const user = e1.dataset.username;  
+  const user = e1.dataset.username;
   const req = new XMLHttpRequest();
   req.addEventListener('load', displayBranches);
   req.open('GET', `https://api.github.com/${username}/${repo}/branches`);
@@ -43,7 +43,6 @@ function getCommits(el) {
   const user = e1.dataset.username;
   const req = new XMLHttpRequest();
   req.addEventListener('load', displayCommits);
-  console.log("get commits url",url+'/commits');
   req.open('GET', `https://api.github.com/${username}/${repo}/commits`);
   req.send();
 }
