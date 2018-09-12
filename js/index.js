@@ -41,6 +41,7 @@ function getCommits(el) {
   const url = el.dataset.url;
   const req = new XMLHttpRequest();
   req.addEventListener('load', displayCommits);
+  console.log("get commits url",url+'/commits');
   req.open('GET', url + '/commits');
   req.send();
 }
