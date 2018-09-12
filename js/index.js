@@ -14,10 +14,11 @@ function displayBranches(ev) {
 
 
 function getBranches(el) {
-  const url = el.dataset.url;
+  const repo = el.dataset.repository;
+  const user = e1.dataset.username;  
   const req = new XMLHttpRequest();
   req.addEventListener('load', displayBranches);
-  req.open('GET', url + '/branches');
+  req.open('GET', `https://api.github.com/${username}/${repo}/branches`);
   req.send();
 }
 
@@ -38,28 +39,29 @@ function displayCommits(ev) {
 }
 
 function getCommits(el) {
-  const url = el.dataset.url;
+  const repo = el.dataset.repository;
+  const user = e1.dataset.username;
   const req = new XMLHttpRequest();
   req.addEventListener('load', displayCommits);
   console.log("get commits url",url+'/commits');
-  req.open('GET', url + '/commits');
+  req.open('GET', `https://api.github.com/${username}/${repo}/commits`);
   req.send();
 }
 
 function displayRepositories() {
   var repos = JSON.parse(this.responseText);
   var user = repos[0].owner.login;
-  let urlBase = 'https://api.github.com/repos/' + user + '/';
   const repoList = `<ul>${repos
     .map(
        r =>
          '<li>' +
           r.html_url +
-         ' - <a href="#" data-url="' +
-         urlBase + r.name +
+         ' - <a href="#" data-repository="' +
+         r.name +
+         '" data-username="' + user +
          '" onclick="getCommits(this)">Get Commits</a></li>' +
-         ' - <a href="#" data-url="' +
-         urlBase + r.name +
+         ' - <a href="#" data-repository="' + r.name +
+         '" data-username="' + user +
          '" onclick="getBranches(this)">Get Branches</a></li>'
      )
     .join('')}</ul>`;
