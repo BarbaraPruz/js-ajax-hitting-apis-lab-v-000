@@ -55,7 +55,7 @@ function displayRepositories() {
     .map(
        r =>
          '<li>' +
-         '<a href=' + r.url + '>' + r.name + '</a>' +
+          r.url + 
          ' - <a href="#" data-url="' +
          urlBase + r.name +
          '" onclick="getCommits(this)">Get Commits</a></li>' +
